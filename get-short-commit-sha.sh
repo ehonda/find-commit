@@ -7,7 +7,7 @@ get_short_commit_sha() {
 
 # Make a commit to create a commit SHA
 create_commit() {
-  git commit --allow-empty -m "Randomize commit SHA"
+  git commit --allow-empty --message "Randomize commit SHA" --quiet
 }
 
 commit_sha_matches() {
