@@ -25,7 +25,7 @@ randomize_commit_sha() {
   echo "$commit_sha"
 
   # Use grep instead of =~ for a more sane regex experience
-  while [[ $(commit_sha_matches regex commit_sha) -ne 0 ]]; do
+  while [[ ! $(commit_sha_matches regex commit_sha) ]]; do
     create_commit
     commit_sha=$(get_short_commit_sha)
     echo "$commit_sha"
