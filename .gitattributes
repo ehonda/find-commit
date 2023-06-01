@@ -1,0 +1,6 @@
+# See https://git-scm.com/docs/gitattributes
+# Default text
+* text=auto
+
+# Shell files
+*.sh text eol=lf
