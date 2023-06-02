@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -euo pipefail
+
 # Get the short commit SHA for the current commit
 get_short_commit_sha() {
   git rev-parse --short HEAD
