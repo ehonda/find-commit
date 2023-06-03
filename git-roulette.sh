@@ -54,5 +54,12 @@ from_predefined_patter_or_user_input() {
   esac
 }
 
-# Run the function with the given regex
-randomize_commit_sha "$(from_predefined_patter_or_user_input "$1")"
+main() {
+  local pattern
+  pattern=from_predefined_patter_or_user_input "$1"
+
+  echo "Spinning to find pattern: $pattern"
+  randomize_commit_sha "$pattern"
+}
+
+main "$@"
