@@ -36,7 +36,7 @@ randomize_commit_sha() {
   done
 }
 
-from_predefined_patter_or_user_input() {
+from_predefined_pattern_or_user_input() {
   local user_input="$1"
   # switch case over provided user input do determine whether to transform it or take it literally
   case "$user_input" in
@@ -56,7 +56,7 @@ from_predefined_patter_or_user_input() {
 
 main() {
   local pattern
-  pattern=from_predefined_patter_or_user_input "$1"
+  pattern=$(from_predefined_pattern_or_user_input "$1")
 
   echo "Spinning to find pattern: $pattern"
   randomize_commit_sha "$pattern"
