@@ -2,7 +2,7 @@
 
 ## 🎡 Overview
 
-`git roulette` is a command line tool that helps you to find a commit with a short SHA matching a given pattern.
+`git-roulette` is a command line tool that helps you to find a commit with a short SHA matching a given pattern.
 
 ## 👩‍💻 Installation
 
