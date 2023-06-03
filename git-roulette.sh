@@ -9,7 +9,9 @@ get_short_commit_sha() {
 
 # Make a commit to create a commit SHA
 create_commit() {
-  git commit --allow-empty --message "Randomize commit SHA" --quiet
+  local regex="$1"
+  # TODO: Customizable commit message
+  git commit --allow-empty --message "Randomize commit SHA to match $regex" --quiet
 }
 
 commit_sha_matches() {
@@ -30,12 +32,14 @@ randomize_commit_sha() {
   # TODO: Reevaluate, maybe we do want to use =~
   # Use grep instead of =~ for a more sane regex experience
   while [[ $(commit_sha_matches "$regex" "$commit_sha") -ne 0 ]]; do
-    create_commit
+    create_commit "$regex"
     commit_sha="$(get_short_commit_sha)"
     echo "$commit_sha"
   done
 }
 
+# TODO: Add functionality to list all predefined patterns
+# TODO: Add functionality to differentiate between input of a predefined pattern and an actual regex
 from_predefined_pattern_or_user_input() {
   local user_input="$1"
   # switch case over provided user input do determine whether to transform it or take it literally
@@ -58,6 +62,7 @@ main() {
   local pattern
   pattern=$(from_predefined_pattern_or_user_input "$1")
 
+  # TODO: Add rainbow pattern to output characters
   echo "Spinning to find pattern: $pattern"
   randomize_commit_sha "$pattern"
 }
