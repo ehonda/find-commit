@@ -23,7 +23,7 @@ git-roulette <regex-or-predefined-pattern>
 
 __ℹ A list of predefined patterns will be amended soon.__
 
-Some exmaples:
+Some examples:
 
 ```bash
 git-roulette "^[a-f]$"
